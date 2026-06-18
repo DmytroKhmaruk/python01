@@ -5,19 +5,22 @@ class Plant:
         self.age = age
 
     def show(self):
-        print(f"{self.name}: {self.height}cm, {self.age} days old")
+        print(f"Created: {self.name}: {self.height}cm, {self.age} days old")
 
 
 def main():
-    rose = Plant("Rose", 25.0, 30)
-    oak = Plant("Oak", 200.0, 365)
-    cactus = Plant("Cactus", 5.0, 90)
-    sunflower = Plant("Sunflower", 80.0, 45)
-    fern = Plant("Fern", 15.0, 120)
+    plants = [
+        Plant("Rose", 25.0, 30),
+        Plant("Oak", 200.0, 365),
+        Plant("Cactus", 5.0, 90),
+        Plant("Sunflower", 80.0, 45),
+        Plant("Fern", 15.0, 120)
+    ]
 
     print("=== Plant Factory Output ===")
-    rose.show()
-    oak.show()
-    cactus.show()
-    sunflower.show()
-    fern.show()
+    for plant in plants:
+        plant.show()
+
+
+if __name__ == "__main__":
+    main()
