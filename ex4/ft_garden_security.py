@@ -1,5 +1,5 @@
 class Plant:
-    def __init__(self, name, height, age):
+    def __init__(self, name: str, height: int, age: int) -> None:
         self.name = name
         if height < 0:
             print(f"{self.name}: Error, height can't be negative")
@@ -12,7 +12,7 @@ class Plant:
         else:
             self._age = age
 
-    def set_height(self, height):
+    def set_height(self, height: int) -> None:
         if height < 0:
             print(f"\n{self.name}: Error, height can't be negative")
             print("Height update rejected")
@@ -20,7 +20,7 @@ class Plant:
             self._height = height
             print(f"\nHeight updated: {self._height}cm")
 
-    def set_age(self, age):
+    def set_age(self, age: int) -> None:
         if age < 0:
             print(f"\n{self.name}: Error, age can't be negative")
             print("Age update rejected")
@@ -28,13 +28,13 @@ class Plant:
             self._age = age
             print(f"\nAge updated: {self._age} days")
 
-    def get_height(self):
+    def get_height(self) -> int:
         return self._height
 
-    def get_age(self):
+    def get_age(self) -> int:
         return self._age
 
-    def show(self):
+    def show(self) -> None:
         print(
             f"Plant created: {self.name}: "
             f"{self.get_height()}cm, "
@@ -42,8 +42,8 @@ class Plant:
         )
 
 
-def main():
-    rose = Plant("Rose", 15.0, 10)
+def main() -> None:
+    rose = Plant("Rose", 15, 10)
     print("=== Garden Security System ===")
     rose.show()
 
@@ -54,7 +54,9 @@ def main():
     rose.set_age(-10)
 
     print(
-        f"\nCurrent state: {rose.name}: {rose._height}cm, {rose._age} days old"
+        f"\nCurrent state: {rose.name}: "
+        f"{rose._height}0.cm, "
+        f"{rose._age} days old"
           )
 
 
