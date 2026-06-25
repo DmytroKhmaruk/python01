@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 class Plant:
     def __init__(self, name: str, height: int, age: int) -> None:
         self.name = name
@@ -43,7 +44,7 @@ class Plant:
 
 
 def main() -> None:
-    rose = Plant("Rose", 15, 10)
+    rose = Plant("Rose", 15.0, 10)
     print("=== Garden Security System ===")
     rose.show()
 
@@ -55,7 +56,7 @@ def main() -> None:
 
     print(
         f"\nCurrent state: {rose.name}: "
-        f"{rose._height}0.cm, "
+        f"{rose._height}.0, "
         f"{rose._age} days old"
           )
 

@@ -1,19 +1,21 @@
+#! /usr/bin/env python3
 class Plant:
-    def __init__(self, name: str, height: float, age: int) -> None:
+    def __init__(self, name: str, height: float, days: int) -> None:
         self.name = name
         self.height = height
-        self.age = age
+        self.days = days
 
     def grow(self, height: float) -> None:
         self.height += height
         self.height = round(self.height, 1)
 
-    def days_old(self, age: int) -> None:
-        print(f"[make {self.name.lower()} grow and age for {age} days]")
-        self.age += age
+    def age(self, days: int) -> None:
+        print(f"[make {self.name} grow and age for {days} days]")
+        self.days += days
 
     def show(self) -> None:
-        print(f"{self.name}: {self.height}cm, {self.age} days old")
+        print(f"{self.name.capitalize()}: "
+              f"{self.height}cm, {self.days} days old")
 
 
 class Flower(Plant):
@@ -31,14 +33,14 @@ class Flower(Plant):
         super().show()
         print(f" Color: {self.color}")
         if self.bloomed:
-            print(f" {self.name} is blooming beautifully!\n")
+            print(f" {self.name.capitalize()} is blooming beautifully!\n")
         else:
-            print(f" {self.name} has not bloomed yet")
+            print(f" {self.name.capitalize()} has not bloomed yet")
 
     def bloom(self) -> None:
         self.bloomed = True
         self.flower = False
-        print(f"[asking the {self.name.lower()} to bloom]")
+        print(f"[asking the {self.name} to bloom]")
         self.show()
 
 
@@ -55,10 +57,11 @@ class Tree(Plant):
         print(f" Trunk diameter: {self.trunk_diameter}cm")
 
     def produce_shade(self) -> None:
-        print(f"[asking the {self.name.lower()} to produce shade]")
+        print(f"[asking the {self.name} to produce shade]")
         print(
-            f"Tree {self.name} now produces a shade of {self.height}cm long"
-            f"and {self.trunk_diameter}cm wide.\n")
+            f"Tree {self.name.capitalize()} "
+            f"now produces a shade of {self.height}cm long"
+            f" and {self.trunk_diameter}cm wide.\n")
 
 
 class Vegetable(Plant):
@@ -81,9 +84,9 @@ class Vegetable(Plant):
 
 
 def main() -> None:
-    rose = Flower("Rose", 15.0, 10, "red")
-    oak = Tree("Oak", 200.0, 365, 5.0)
-    tomato = Vegetable("Tomato", 5.0, 10, "April", 0)
+    rose = Flower("rose", 15.0, 10, "red")
+    oak = Tree("oak", 200.0, 365, 5.0)
+    tomato = Vegetable("tomato", 5.0, 10, "April", 0)
     print("=== Garden Plant Types ===")
     Flower.show(rose)
     rose.bloom()
@@ -91,7 +94,7 @@ def main() -> None:
     oak.produce_shade()
     Vegetable.show(tomato)
     tomato.grow(42)
-    tomato.days_old(20)
+    tomato.age(20)
     tomato.nutritional_value += 20
     Vegetable.show(tomato)
 

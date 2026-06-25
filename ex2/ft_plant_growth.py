@@ -1,18 +1,19 @@
+#! /usr/bin/env python3
 class Plant:
-    def __init__(self, name: str, height: float, age: int) -> None:
+    def __init__(self, name: str, height: float, days: int) -> None:
         self.name = name
         self.height = height
-        self.age = age
+        self.days = days
 
     def grow(self, height: float) -> None:
         self.height += height
         self.height = round(self.height, 1)
 
-    def days_old(self, age: int) -> None:
-        self.age += age
+    def age(self, days: int) -> None:
+        self.days += days
 
     def show(self) -> None:
-        print(f"{self.name}: {self.height}cm, {self.age} days old")
+        print(f"{self.name}: {self.height}cm, {self.days} days old")
 
 
 def main() -> None:
@@ -23,7 +24,7 @@ def main() -> None:
     for day in range(1, 8):
         print("=== Day", day, "===")
         rose.grow(grow)
-        rose.days_old(1)
+        rose.age(1)
         rose.show()
     print(f"Growth this week: {round((day * grow), 1)}cm")
 
